@@ -1,0 +1,178 @@
+<!-- Barra de navegación superior-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">Fitness App</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/about"
+            >Acerca de <span class="sr-only"></span
+          ></a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <div class="row">
+          <div class="col"></div>
+          <div class="col">
+            <button
+              class="btn btn-outline-light my-2 my-sm-0 text-nowrap"
+              type="button"
+              id="btnNavRegistro"
+              data-toggle="modal"
+              data-target="#registroModal"
+            >
+              Registro
+            </button>
+          </div>
+          <div class="col"></div>
+          <div class="col">
+            <button
+              class="btn btn-outline-light my-2 my-sm-0 text-nowrap"
+              type="button"
+              id="btnNavInicio"
+              data-toggle="modal"
+              data-target="#inicioModal"
+            >
+              Iniciar sesión
+            </button>
+          </div>
+          <div class="col"></div>
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<!-- Elementos Modal -->
+<!-- Modal Registro -->
+<div
+  class="modal fade"
+  id="registroModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="Registro Modal"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Registro</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="" id="formRegistro">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="registroEmail">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="registroEmail"
+              aria-describedby="emailHelp"
+              placeholder="Introduce tu email"
+            />
+            <small id="emailHelp" class="form-text text-muted"
+              >Nunca compartiremos tu email!!</small
+            >
+          </div>
+          <div class="form-group">
+            <label for="registroPassword1">Contraseña</label>
+            <input
+              type="password"
+              class="form-control"
+              id="registroPassword1"
+              placeholder="Contraseña"
+            />
+          </div>
+          <div class="form-group">
+            <label for="registroPassword2">Confirmar contraseña</label>
+            <input
+              type="password"
+              class="form-control"
+              id="registroPassword2"
+              placeholder="Confirmar contraseña"
+            />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Cerrar
+          </button>
+          <button type="submit" class="btn btn-primary">Registrarse</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Modal Inicio -->
+<div
+  class="modal fade"
+  id="inicioModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="Inicio Modal"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Inicio</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="" id="formInicio">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="InicioEmail">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="InicioEmail"
+              aria-describedby="emailHelp"
+              placeholder="Introduce tu email"
+            />
+          </div>
+          <div class="form-group">
+            <label for="inicioPassword">Contraseña</label>
+            <input
+              type="password"
+              class="form-control"
+              id="inicioPassword"
+              placeholder="Contraseña"
+            />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Cerrar
+          </button>
+          <button type="submit" class="btn btn-primary">Entrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
