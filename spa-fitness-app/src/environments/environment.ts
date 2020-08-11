@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  firebase: {
+  firebaseConfig: {
     // Your web app's Firebase configuration
     apiKey: 'AIzaSyBhVVQorgsk_SmjtpzOydxzxNghMGNs7WQ',
     authDomain: 'dev-fitnessapp.firebaseapp.com',
