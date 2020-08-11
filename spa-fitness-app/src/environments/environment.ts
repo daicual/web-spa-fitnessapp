@@ -3,7 +3,18 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    // Your web app's Firebase configuration
+    apiKey: 'AIzaSyBhVVQorgsk_SmjtpzOydxzxNghMGNs7WQ',
+    authDomain: 'dev-fitnessapp.firebaseapp.com',
+    databaseURL: 'https://dev-fitnessapp.firebaseio.com',
+    projectId: 'dev-fitnessapp',
+    storageBucket: 'dev-fitnessapp.appspot.com',
+    messagingSenderId: '1007835621938',
+    appId: '1:1007835621938:web:e658cb7598899c8f1b6a2b',
+    measurementId: 'G-7ZNSLF9G2T',
+  },
 };
 
 /*
