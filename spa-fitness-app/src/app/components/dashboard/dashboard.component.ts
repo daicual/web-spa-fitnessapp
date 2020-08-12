@@ -8,6 +8,7 @@ import {
   FormControl,
   Validators,
 } from '@angular/forms';
+import { MustMatch } from 'src/app/_helpers/form-helper';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -18,17 +19,26 @@ export class DashboardComponent implements OnInit {
   formInicio: FormGroup;
   formBotones: FormGroup;
   constructor(private _builder: FormBuilder) {
-    this.formRegistro = this._builder.group({
-      email: ['', Validators.compose([Validators.email, Validators.required])],
-      password1: ['', Validators.required],
-      password2: ['', Validators.required],
-    });
+    this.formRegistro = this._builder.group(
+      {
+        email: [
+          '',
+          Validators.compose([Validators.email, Validators.required]),
+        ],
+        password1: ['', Validators.required],
+        password2: ['', Validators.required],
+      },
+      {
+        validator: MustMatch('password1', 'password2'),
+      }
+    );
     this.formInicio = this._builder.group({
       email: ['', Validators.compose([Validators.email, Validators.required])],
       password: ['', Validators.required],
     });
     this.formBotones = this._builder.group({});
   }
+
   registrarEmailPassword(values) {
     console.log(values);
   }
