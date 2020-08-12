@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 export class LoginComponent implements OnInit {
   formRegistro: FormGroup;
   formInicio: FormGroup;
+  inicio: boolean = true;
   constructor(private _builder: FormBuilder, private authSvc: AuthService) {
     this.formRegistro = this._builder.group(
       {
