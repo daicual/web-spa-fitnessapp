@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth/auth.service';
 //FIREBASE
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
@@ -18,7 +19,7 @@ export class DashboardComponent implements OnInit {
   formRegistro: FormGroup;
   formInicio: FormGroup;
   formBotones: FormGroup;
-  constructor(private _builder: FormBuilder) {
+  constructor(private _builder: FormBuilder, private authSvc: AuthService) {
     this.formRegistro = this._builder.group(
       {
         email: [
@@ -40,9 +41,10 @@ export class DashboardComponent implements OnInit {
   }
 
   registrarEmailPassword(values) {
-    console.log(values);
+    this.authSvc.registro(values.email, values.password1);
   }
   inicioEmailPassword(values) {
+    this.authSvc.inicio(values.email, values.password);
     console.log(values);
   }
   ngOnInit(): void {}
