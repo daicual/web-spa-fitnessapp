@@ -22,7 +22,7 @@
           ></a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
+      <form class="form-inline my-2 my-lg-0" [formGroup]="formBotones">
         <div class="row">
           <div class="col"></div>
           <div class="col">
@@ -78,14 +78,17 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="" id="formRegistro">
+      <form
+        [formGroup]="formRegistro"
+        (ngSubmit)="registrarEmailPassword(formRegistro.value)"
+      >
         <div class="modal-body">
           <div class="form-group">
             <label for="registroEmail">Email</label>
             <input
               type="email"
               class="form-control"
-              id="registroEmail"
+              formControlName="email"
               aria-describedby="emailHelp"
               placeholder="Introduce tu email"
             />
@@ -98,7 +101,7 @@
             <input
               type="password"
               class="form-control"
-              id="registroPassword1"
+              formControlName="password1"
               placeholder="Contraseña"
             />
           </div>
@@ -107,7 +110,7 @@
             <input
               type="password"
               class="form-control"
-              id="registroPassword2"
+              formControlName="password2"
               placeholder="Confirmar contraseña"
             />
           </div>
@@ -116,7 +119,13 @@
           <button type="button" class="btn btn-secondary" data-dismiss="modal">
             Cerrar
           </button>
-          <button type="submit" class="btn btn-primary">Registrarse</button>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="formRegistro.invalid"
+          >
+            Registrarse
+          </button>
         </div>
       </form>
     </div>
@@ -144,14 +153,17 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="" id="formInicio">
+      <form
+        [formGroup]="formInicio"
+        (ngSubmit)="inicioEmailPassword(formInicio.value)"
+      >
         <div class="modal-body">
           <div class="form-group">
             <label for="InicioEmail">Email</label>
             <input
               type="email"
               class="form-control"
-              id="InicioEmail"
+              formControlName="email"
               aria-describedby="emailHelp"
               placeholder="Introduce tu email"
             />
@@ -161,7 +173,7 @@
             <input
               type="password"
               class="form-control"
-              id="inicioPassword"
+              formControlName="password"
               placeholder="Contraseña"
             />
           </div>
@@ -170,7 +182,13 @@
           <button type="button" class="btn btn-secondary" data-dismiss="modal">
             Cerrar
           </button>
-          <button type="submit" class="btn btn-primary">Entrar</button>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="formInicio.invalid"
+          >
+            Entrar
+          </button>
         </div>
       </form>
     </div>
