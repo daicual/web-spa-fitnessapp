@@ -1,0 +1,162 @@
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-6">
+      <div *ngIf="inicio">
+        <form
+          [formGroup]="formInicio"
+          (ngSubmit)="inicioEmailPassword(formInicio.value)"
+        >
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="InicioEmail">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                formControlName="email"
+                aria-describedby="emailHelp"
+                placeholder="Introduce tu email"
+              />
+              <div
+                *ngIf="
+                  formInicio.get('email').hasError('email') &&
+                  formInicio.get('email').touched
+                "
+              >
+                Email incorrecto
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inicioPassword">Contraseña</label>
+              <input
+                type="password"
+                class="form-control"
+                formControlName="password"
+                placeholder="Contraseña"
+              />
+              <div
+                *ngIf="
+                  formInicio.get('password').hasError('required') &&
+                  formInicio.get('password').touched
+                "
+              >
+                Es necesario introducir una contraseña
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              [disabled]="formInicio.invalid"
+            >
+              Entrar
+            </button>
+          </div>
+          <span
+            >¿Aún no tienes cuenta?
+            <button class="btn btn-link" (click)="swapInicioRegistro()">
+              Regístrate
+            </button></span
+          >
+        </form>
+      </div>
+      <div *ngIf="!inicio">
+        <form
+          [formGroup]="formRegistro"
+          (ngSubmit)="registrarEmailPassword(formRegistro.value)"
+        >
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="registroEmail">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                formControlName="email"
+                aria-describedby="emailHelp"
+                placeholder="Introduce tu email"
+              />
+              <div
+                *ngIf="
+                  formRegistro.get('email').hasError('email') &&
+                  formRegistro.get('email').touched
+                "
+              >
+                Es necesario introducir un email válido
+              </div>
+              <small id="emailHelp" class="form-text text-muted"
+                >Nunca compartiremos tu email!!</small
+              >
+            </div>
+            <div class="form-group">
+              <label for="registroPassword1">Contraseña</label>
+              <input
+                type="password"
+                class="form-control"
+                formControlName="password1"
+                placeholder="Contraseña"
+              />
+            </div>
+            <div
+              *ngIf="
+                formRegistro.get('password1').hasError('required') &&
+                formRegistro.get('password1').touched
+              "
+            >
+              Es necesario introducir una contraseña
+            </div>
+            <div class="form-group">
+              <label for="registroPassword2">Confirmar contraseña</label>
+              <input
+                type="password"
+                class="form-control"
+                formControlName="password2"
+                placeholder="Confirmar contraseña"
+              />
+            </div>
+            <div
+              *ngIf="
+                formRegistro.controls.password2.errors &&
+                formRegistro.controls.password2.errors.mustMatch
+              "
+            >
+              Las contraseñas no coinciden
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              [disabled]="formRegistro.invalid"
+            >
+              Registrarse
+            </button>
+          </div>
+          <span
+            >¿Ya tienes cuenta?
+            <button class="btn btn-link" (click)="swapInicioRegistro()">
+              Inicia sesión
+            </button></span
+          >
+        </form>
+      </div>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>
