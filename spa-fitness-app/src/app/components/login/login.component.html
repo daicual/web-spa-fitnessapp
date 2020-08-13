@@ -44,6 +44,7 @@
               </div>
             </div>
           </div>
+
           <div class="modal-footer">
             <button
               type="button"
@@ -60,6 +61,12 @@
               Entrar
             </button>
           </div>
+          <span
+            >¿Aún no tienes cuenta?
+            <button class="btn btn-link" (click)="swapInicioRegistro()">
+              Regístrate
+            </button></span
+          >
         </form>
       </div>
       <div *ngIf="!inicio">
@@ -124,6 +131,7 @@
               Las contraseñas no coinciden
             </div>
           </div>
+
           <div class="modal-footer">
             <button
               type="button"
@@ -140,6 +148,12 @@
               Registrarse
             </button>
           </div>
+          <span
+            >¿Ya tienes cuenta?
+            <button class="btn btn-link" (click)="swapInicioRegistro()">
+              Inicia sesión
+            </button></span
+          >
         </form>
       </div>
     </div>

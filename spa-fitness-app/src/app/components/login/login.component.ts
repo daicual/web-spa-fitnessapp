@@ -41,4 +41,7 @@ export class LoginComponent implements OnInit {
     this.authSvc.inicio(values.email, values.password);
     console.log(values);
   }
+  swapInicioRegistro() {
+    this.inicio = !this.inicio;
+  }
 }
