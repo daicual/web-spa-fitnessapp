@@ -7,10 +7,13 @@ import { UserComponent } from './components/user/user.component';
 import { AboutComponent } from './components/about/about.component';
 import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { environment } from 'src/environments/environment';
+import { LoginComponent } from './components/login/login.component';
+import { AuthService } from 'src/app/services/auth/auth.service';
 //FIREBASE
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -19,13 +22,16 @@ import { environment } from 'src/environments/environment';
     AboutComponent,
     HomeComponent,
     DashboardComponent,
+    LoginComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
