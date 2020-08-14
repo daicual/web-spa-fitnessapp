@@ -1,2 +1,9 @@
-<p>user works!</p>
-<button class="btn btn-danger">Prueba</button>
+<h2>Página en construccion:</h2>
+<h4>DATOS DEL USUARIO:</h4>
+<div *ngIf="user$ | async as user">
+  <p>{{ user?.email }}</p>
+  <p>ID: {{ user?.uid }}</p>
+  <p>Proveedor: {{ user?.providerId }}</p>
+  <p>Creacion: {{ user?.metadata.creationTime }}</p>
+  <p>Ultimo inicio: {{ user?.metadata.lastSignInTime }}</p>
+</div>

@@ -13,6 +13,7 @@ export class AuthService {
         email,
         password
       );
+      console.log(result);
       return result;
     } catch (error) {
       console.log(error);
@@ -39,12 +40,8 @@ export class AuthService {
   }
   getCurrentuser() {
     //return firebase.auth().currentUser;
-    return this.afAuth.authState.pipe(first()).toPromise();
-  }
-  async getUserIDAsync() {
-    const user = await this.afAuth.authState.pipe(first()).toPromise();
+    const user = this.afAuth.authState.pipe(first()).toPromise();
     console.log(user);
-    console.log('UID: ', user.uid);
-    return user.uid;
+    return user;
   }
 }

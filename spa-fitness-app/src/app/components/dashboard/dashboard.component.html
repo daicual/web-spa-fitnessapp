@@ -24,7 +24,7 @@
       </ul>
       <ul class="navbar-nav ml-auto" *ngIf="user$ | async as user; else login">
         <li class="nav-item active" *ngIf="user">
-          <a class="nav-link"
+          <a class="nav-link" routerLink="/user"
             >{{ user?.email }} <span class="sr-only"></span
           ></a>
         </li>
