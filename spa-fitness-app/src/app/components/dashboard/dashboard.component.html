@@ -22,23 +22,28 @@
           ></a>
         </li>
       </ul>
-      <ul class="navbar-nav ml-auto">
-        <!--<li class="nav-item active" *ngIf="isLogged">
-          <a class="nav-link" routerLink="/login"
-            >{{ user.email }} <span class="sr-only"></span
-          ></a>
-        </li>-->
-        <li class="nav-item active" *ngIf="!isLogged">
-          <a class="nav-link" routerLink="/login"
-            >Inicio/Registro <span class="sr-only"></span
+      <ul class="navbar-nav ml-auto" *ngIf="user$ | async as user; else login">
+        <li class="nav-item active" *ngIf="user">
+          <a class="nav-link"
+            >{{ user?.email }} <span class="sr-only"></span
           ></a>
         </li>
-        <li class="nav-item active" *ngIf="isLogged">
-          <a class="nav-link" routerLink="/login"
+
+        <li class="nav-item active" *ngIf="user">
+          <a href="#" class="nav-link" (click)="cerrarSesion()"
             >Cerrar sesión <span class="sr-only"></span
           ></a>
         </li>
       </ul>
+      <ng-template #login>
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/login"
+              >Inicio/Registro <span class="sr-only"></span
+            ></a>
+          </li>
+        </ul>
+      </ng-template>
     </div>
   </div>
 </nav>

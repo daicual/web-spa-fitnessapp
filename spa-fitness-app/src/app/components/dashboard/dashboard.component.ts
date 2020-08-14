@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  isLogged: boolean = false;
+  public user$: Observable<any> = this.authSvc.afAuth.user;
 
-  constructor() {}
+  constructor(private authSvc: AuthService, private router: Router) {}
 
-  ngOnInit(): void {}
+  async ngOnInit() {}
+  async cerrarSesion() {
+    try {
+      this.authSvc.logout();
+      this.router.navigate(['/login']);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }

@@ -1,14 +1,11 @@
 import { Injectable } from '@angular/core';
-import { first } from 'rxjs/operators';
-import { auth } from 'firebase/app';
+import { first, take } from 'rxjs/operators';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { User } from 'firebase';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  public user: User;
   constructor(public afAuth: AngularFireAuth) {}
   async inicio(email: string, password: string) {
     try {
@@ -41,6 +38,13 @@ export class AuthService {
     }
   }
   getCurrentuser() {
-    return this.afAuth.authState.pipe(first()).toPromise;
+    //return firebase.auth().currentUser;
+    return this.afAuth.authState.pipe(first()).toPromise();
+  }
+  async getUserIDAsync() {
+    const user = await this.afAuth.authState.pipe(first()).toPromise();
+    console.log(user);
+    console.log('UID: ', user.uid);
+    return user.uid;
   }
 }
